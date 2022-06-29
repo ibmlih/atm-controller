@@ -1,5 +1,10 @@
 class Controller:
     def __init__(self, bank):
+        """Initializes a Controller object.
+
+        Args:
+            bank (Bank): A Bank object that the controller interacts with.
+        """
         self.bank = bank
         self.card_number = None
         self.pin_number = None
