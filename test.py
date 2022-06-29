@@ -9,15 +9,15 @@ class TestATM(unittest.TestCase):
         self.assertTrue(controller.insert_card(1234))
         self.assertFalse(controller.insert_card(5678))
         
-    def test_enter_pin(self):
+    def test_verify_pin(self):
         bank = bk.Bank()
         bank.add_card(1234, 'password')
         
         controller = ctrler.Controller(bank)
-        self.assertFalse(controller.enter_pin('password'))
+        self.assertFalse(controller.verify_pin('password'))
         controller.insert_card(1234)
-        self.assertFalse(controller.enter_pin('pass'))
-        self.assertTrue(controller.enter_pin('password'))
+        self.assertFalse(controller.verify_pin('pass'))
+        self.assertTrue(controller.verify_pin('password'))
         
     def test_select_account(self):
         bank = bk.Bank()
@@ -28,7 +28,7 @@ class TestATM(unittest.TestCase):
         controller = ctrler.Controller(bank)
         self.assertFalse(controller.select_account('Checking'))
         controller.insert_card(1234)
-        controller.enter_pin('password')
+        controller.verify_pin('password')
         self.assertTrue(controller.select_account('Checking'))
         self.assertTrue(controller.select_account('Saving'))
         self.assertFalse(controller.select_account('Retirement'))
@@ -62,7 +62,7 @@ class TestATM(unittest.TestCase):
             
         controller = ctrler.Controller(bank)
         self.assertTrue(controller.insert_card(1234))
-        self.assertTrue(controller.enter_pin('password'))
+        self.assertTrue(controller.verify_pin('password'))
         self.assertTrue(controller.select_account('Checking'))
 
         self.assertEqual(controller.get_balance(), 0)
