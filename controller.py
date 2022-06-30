@@ -7,9 +7,9 @@ class Controller:
             
         Member Variables:
             self.bank (Bank): a Bank object
-            self.card_number (int): stores a card number of an inserted card
-            self.pin_number (str): stores a pin number of an inserted card
-            self.account_name (str): stores a selected account name
+            self.card_number (int): stores a card number of inserted card
+            self.pin_number (str): stores a pin number of inserted card
+            self.account_name (str): stores selected account name
         """
         self.bank = bank
         self.card_number = None

@@ -2,7 +2,7 @@ import card
 
 class Bank:
     def __init__(self):
-        """Initialze a Bank object.
+        """Initialize a Bank object.
         
         Member Variables:
             self.card (dict): dictionary that maps from a card number (int) to a Card object

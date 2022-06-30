@@ -7,7 +7,7 @@ class Account:
         
         Member Variables:
             self.name (str): account name
-            self.balance (int): total balance
+            self.balance (int): current balance
         """
         self.name = name
         self.balance = 0
@@ -21,10 +21,10 @@ class Account:
         return self.name
         
     def get_balance(self):
-        """Get the total balance.
+        """Get the current balance.
 
         Returns:
-            int: total balance in dollars
+            int: current balance in dollars
         """
         return self.balance
     
@@ -54,13 +54,13 @@ class Account:
         Raises:
             TypeError: amount must be an integer
             ValueError: amount must be positive
-            ValueError: amount greater than the total balance
+            ValueError: amount greater than the current balance
         """
         if not isinstance(amount, int):
             raise TypeError("amount must be an integer")
         if amount < 0:
             raise ValueError("amount must be positive")
         if amount > self.balance:
-            raise ValueError("amount greater than the total balance")
+            raise ValueError("amount greater than the current balance")
         
         self.balance -= amount
