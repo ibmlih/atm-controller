@@ -4,6 +4,12 @@ class Controller:
 
         Args:
             bank (Bank): A Bank object that the controller interacts with.
+            
+        Member Variables:
+            self.bank (Bank): a Bank object
+            self.card_number (int): stores a card number of an inserted card
+            self.pin_number (str): stores a pin number of an inserted card
+            self.account_name (str): stores a selected account name
         """
         self.bank = bank
         self.card_number = None
@@ -37,7 +43,7 @@ class Controller:
         return self.bank.is_correct_pin(self.card_number, self.pin_number)
     
     def select_account(self, account_name):
-        """Select an account to check balance, deposit, or withdraw.
+        """Select an account from the card to check balance, deposit, or withdraw.
 
         Args:
             account_name (str): name of an account to select

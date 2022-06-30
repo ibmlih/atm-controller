@@ -38,6 +38,7 @@ class TestATM(unittest.TestCase):
         bank.add_card(1234, 'password')
         with self.assertRaises(ValueError):
             bank.add_card(1234, 'password')
+        bank.add_card(5678, 'password')
     
     def test_add_account(self):
         bank = bk.Bank()
@@ -47,6 +48,8 @@ class TestATM(unittest.TestCase):
             bank.add_account(5678, 'password', 'Checking')
         with self.assertRaises(ValueError):
             bank.add_account(1234, 'pass', 'Checking')
+        
+        bank.add_account(1234, 'password', 'Checking')
 
     def test_balance_deposit_withdraw(self):
         bank = bk.Bank()
